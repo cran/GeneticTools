@@ -1,0 +1,15 @@
+import(gMWT, snpStats)
+
+S3method(print,eqtl)
+S3method(plot,eqtl)
+S3method(summary,eqtl)
+
+S3method(print,mdr)
+S3method(predict,mdr)
+S3method(plot,mdr)
+
+S3method(print,mdrPredict)
+
+export(eQTL, mdr, recodeData, eqtlPlot)
+
+useDynLib(GeneticTools)
