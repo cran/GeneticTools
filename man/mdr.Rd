@@ -6,7 +6,7 @@
 }
 
 \description{
-  This function performs a Multifactor Dimension Reduction.
+  This function performs a Multifactor Dimension Reduction (MDR).
 }
 \usage{
   mdr(X,status,fold=2,t=NULL,cv=0,cvp=0.75,top=20,NAasValues=TRUE,fix=NULL)
@@ -44,7 +44,7 @@
  is the ratio of the groups sizes.
 }
 \value{
- An object of class \code{mdr}
+ An object of class \code{mdr}.
 }
 
 
@@ -60,21 +60,23 @@
 }
 
 \examples{
-# The datasets are not yet available. As soon as they will get published they will be also added to the package
+# The datasets are not yet available. As soon as they will get published they will
+# be also added to the package
 
+\dontrun{
 # Read in the genotype data
-# genotData <- read.table("MDR_format_ready.txt",header=T)
+genotData <- read.table("MDR_data.txt",header=T)
 
 # Extract the status information
-# status <- genotData[["Class"]]
-# genotData <- as.matrix(genotData[,-which((colnames(genotData)=="Class")==TRUE)])
+status <- genotData[["Class"]]
+genotData <- as.matrix(genotData[,-which((colnames(genotData)=="Class")==TRUE)])
 
 # Bring the data into 0,1,2 format
-# temp <- recodeData(genotData)
+temp <- recodeData(genotData)
 
 # Perform the MDR
-# res <- mdr(X=temp,status=status,fold=3,top=20)
-
+res <- mdr(X=temp,status=status,fold=3,top=20)
+}
 }
 
 \keyword{

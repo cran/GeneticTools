@@ -14,14 +14,14 @@ RcppExport SEXP mdr(SEXP X, SEXP fold, SEXP status, SEXP t, SEXP cv, SEXP cvp, S
     double CVP = Rcpp::as<int>(cvp);
     int TOP = Rcpp::as<int>(top);
     TOP = TOP + 1;
-    int NA = Rcpp::as<int>(na);
+    // int NA = Rcpp::as<int>(na);
     int FIX = Rcpp::as<int>(fix);
     
     int k = XX.ncol();
     int p = XX.nrow();
     
     int NTrain = floor(p*CVP);
-    int NTest = p-NTrain;
+    // int NTest = p-NTrain;
     
     vec index(p);
     for(int i=0;i<p;i++) index(i)=i;

@@ -1,4 +1,4 @@
-import(gMWT, snpStats)
+import(gMWT, snpStats, parallel, plotrix)
 
 S3method(print,eqtl)
 S3method(plot,eqtl)
@@ -10,6 +10,6 @@ S3method(plot,mdr)
 
 S3method(print,mdrPredict)
 
-export(eQTL, mdr, recodeData, eqtlPlot)
+export(calcDistances, eQTL, genotypePlot, getRegionsOI, gtfToBed, mdr, recodeData, visTrans)
 
 useDynLib(GeneticTools)

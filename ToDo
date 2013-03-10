@@ -1,5 +1,5 @@
-* Include examples (will be done, as soon as we have access to a dataset that is used in 
-   a current article under review). The dataset will then be published as a accompanying
-   package
+Planned changes in later Versions (List is not exclusive...):
 
-* Add an informative summary/plot for the MDR cross-validation
+* Generalize the 'gtfToBed' function 
+* Change the eQTL summary function
+* Add the annotation track option for the eQTL plot

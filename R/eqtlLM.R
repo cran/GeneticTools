@@ -1,6 +1,3 @@
-# Version 30-11-2012, Daniel Fischer
-
-# This function applies a linear Regression model to the data and tests of the slope is equal to zero or not.
 eqtlLM <- function(genoGroups,gex){
 
   output <- c()

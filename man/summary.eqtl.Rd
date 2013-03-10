@@ -25,7 +25,8 @@
 
 \examples{
 # First perform an eQTL
-# lm.myEQTL <- eQTL(gex=ourExpression, geno=genotData, xAnnot=xAnnotDF, windowSize=1, genoSamples=genoSamples, method="LM")
+# lm.myEQTL <- eQTL(gex=ourExpression, geno=genotData, xAnnot=xAnnotDF, windowSize=1,
+#                   genoSamples=genoSamples, method="LM")
 
 # summary(lm.myEQTL)
 }

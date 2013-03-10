@@ -21,7 +21,7 @@
   substitutes it with 0,1 and 2. Missing values are encoded as 3.
 }
 \value{
- A matrix with same dimension as the input, but in 0,1,2 coding
+ A matrix with same dimension as the input, but in 0,1,2 encoding.
 }
 
 \seealso{

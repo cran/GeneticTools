@@ -1,4 +1,23 @@
-LOG of the CHANGES in the package REPPlab
+LOG of the CHANGES in the package GeneticTools
+
+Version 0.2:
+* Added 'sig' output of the 'eQTL' function
+* Added the sig option into the 'eqtl' function
+* Added the bed output to the print.eqtl function
+* Added a which option to the 'eQTL' function
+* Added the verbose options to 'eQTL' and 'eqtl.plot'
+* Added the option windowSize=NULL in 'eQTL' in order to test for trans-eQTL
+* Added the function getRegionsOI
+* Added the function calcDistances
+* Bugfix in 'print.eqtl'
+* Changed Package description
+* Parallel implementation of the 'eqtl.dir' function
+* Several code optimizations
+* Added the 'gtfToBed' function
+* Added the 'annotTrack' data
+* Plotrix dependence for some plots required
+* Started the experimental feature of time-series clustering for gene-expression profiles
+* Added a vignette to the package
 
 Version 0.1:
 * First build and initial submission to cran

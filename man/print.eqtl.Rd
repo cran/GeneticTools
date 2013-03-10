@@ -9,13 +9,14 @@
   Prints an \code{eqtl} object.
 }
 \usage{
- \method{print}{eqtl}(x, which=NULL, sig=0.01, ...)
+ \method{print}{eqtl}(x, which=NULL, sig=0.01, output="bed", ...)
 }
 
 \arguments{
   \item{x}{Object of class \code{eqtl}.}
   \item{which}{Which center gene should be printed.}
   \item{sig}{Significance level.}
+  \item{output}{Output format.}
   \item{...}{Additional parameters.}
 }
 
@@ -29,9 +30,11 @@
 \author{Daniel Fischer}
 
 \examples{
-# myeqtl <- eQTL(geneMatrix,genoData,singleLoc,genoSamples,singleSamples,windowSize,method="LM")
-# myeqtl
-# print(myeqtl, sig=0.05)
+\dontrun{
+myeqtl <- eQTL(geneMatrix,genoData,singleLoc,genoSamples,singleSamples,windowSize,method="LM")
+myeqtl
+print(myeqtl, sig=0.05)
+}
 }
 
 \keyword{methods}

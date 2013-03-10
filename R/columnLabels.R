@@ -7,7 +7,7 @@ columnLabels <- function(x){
     alleles[2] <- "B"
     alleles[3] <- "X"
   }
-  # Homomorph
+  # Momomorph
   if((alleles!="X")&&(length(alleles)==1)){
     alleles[2] <- "B"
     alleles[3] <- "X"
