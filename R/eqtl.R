@@ -1,4 +1,13 @@
-eQTL <- function(gex, geno, xAnnot=NULL, xSamples=NULL, genoSamples=NULL, windowSize=0.5, method="LM", mc=1, sig=NULL, which=NULL, verbose=TRUE){
+eQTL <- function(gex, geno, xAnnot=NULL, xSamples=NULL, genoSamples=NULL, windowSize=0.5, method="LM", mc=1, sig=NULL, which=NULL,nper=2000 , verbose=TRUE){
+
+  # Read in the genotype data if name is given, otherwise assume already imported SNPS are given as input
+  if(is.character(geno)==TRUE)
+  {
+    if(verbose==TRUE) cat("Start reading the genotype information at",date(),"\n")
+    genotData <- read.pedfile(file=paste(geno,".ped",sep=""),snps=paste(geno,".map",sep=""))
+  } else {
+    genotData <- geno
+  }
 
   # Input checks
   if(is.vector(gex) & is.null(xAnnot))
@@ -38,15 +47,7 @@ eQTL <- function(gex, geno, xAnnot=NULL, xSamples=NULL, genoSamples=NULL, window
     gexColNames <- colnames(gex)
   }
 
-  # Read in the genotype data if name is given, otherwise assume already imported SNPS are given as input
-  if(is.character(geno)==TRUE)
-  {
-    if(verbose==TRUE) cat("Start reading the genotype information at",date(),"\n")
-    genotData <- read.pedfile(file=paste(geno,".ped",sep=""),snps=paste(geno,".map",sep=""))
-  } else {
-    genotData <- geno
-  }
-  
+ 
   # In case that the row names have been changed, bring them into an order
   rownames(genotData$map) <- 1:nrow(genotData$map)
 
@@ -84,7 +85,8 @@ eQTL <- function(gex, geno, xAnnot=NULL, xSamples=NULL, genoSamples=NULL, window
     for(tempRun in 1:nrow(tempAnnot))
     {
       # Temporary values
-      SNPloc <- getSNPlocations(genotData$map,tempAnnot[tempRun,],th=th)
+## DO HERE SOMETHING ELSE IF TH IS NULL!!!! THEN YOU HAVE TO TAKE ALL PROVIDED SNP LOCATIONS AS POSSIBLE SNP!!!
+      SNPloc <- getSNPlocations(genotInfo=genotData$map,annot=tempAnnot[tempRun,],th=th)
       SNPmatrix <- genotData$genotypes[,SNPloc$SNPcol]
       genoGroups <- as(SNPmatrix,"numeric")
       genoGroups <- rearrange(genoGroups,rownames(gex),genoSamples)
@@ -102,9 +104,9 @@ eQTL <- function(gex, geno, xAnnot=NULL, xSamples=NULL, genoSamples=NULL, window
       } else if(method=="directional"){
         if(is.null(sig))
         { 
-	  eqtlTemp[[tempRun]] <- list(ProbeLoc=rep(tempRun,ncol(genoGroups)),TestedSNP=SNPloc[[1]],p.values=eqtlDir.P(genoGroups,gex[,probeRun],mc=mc))
+	  eqtlTemp[[tempRun]] <- list(ProbeLoc=rep(tempRun,ncol(genoGroups)),TestedSNP=SNPloc[[1]],p.values=eqtlDir.P(genoGroups,gex[,probeRun],mc=mc,nper=nper))
 	} else {
-	  p.values <- eqtlDir.P(genoGroups,gex[,probeRun],mc=mc)
+	  p.values <- eqtlDir.P(genoGroups,gex[,probeRun],mc=mc,nper=nper)
 	  pPos <- p.values<sig
 	  eqtlTemp[[tempRun]] <- cbind(SNPloc[[1]][pPos,c(1,2,4)],p.values[pPos])
 	}

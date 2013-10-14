@@ -1,5 +1,13 @@
 LOG of the CHANGES in the package GeneticTools
 
+Version 0.2.2:
+* Fixed typos in the manual
+
+Version 0.2.1:
+* Fixed typos in the man-files
+* Added nper option to eqtl function
+* Added missing pacakges to the namespace
+
 Version 0.2:
 * Added 'sig' output of the 'eQTL' function
 * Added the sig option into the 'eqtl' function

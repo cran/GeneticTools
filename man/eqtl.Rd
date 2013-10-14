@@ -9,8 +9,9 @@
   This function performs an eQTL analysis.
 }
 \usage{
-  eQTL(gex, geno, xAnnot, xSamples=NULL, genoSamples=NULL, windowSize=0.5,
-       method="LM", mc=1, sig=NULL, which=NULL, verbose=TRUE)
+  eQTL(gex, geno, xAnnot = NULL, xSamples = NULL, genoSamples = NULL,
+       windowSize = 0.5, method = "LM", mc = 1, sig = NULL, which = NULL,
+       nper = 2000, verbose = TRUE)
 }
 
 \arguments{
@@ -24,6 +25,7 @@
   \item{mc}{Amount of cores for parallel computing.}
   \item{sig}{Significance level for the eQTL testing, see details.}
   \item{which}{Names of numbers of genes for that the eQTL should be performed.}
+  \item{nper}{Sets the amount of permutations, if permuation tests are used.}
   \item{verbose}{Logical, if the method should report intermediate results.}
 }
 
@@ -108,7 +110,7 @@ will be soon available also.
 }
 
 \references{
-  \cite{Fischer, D., Oja, H., Sen, P.K., Schleutker, J., Wahlfors, T. (2013): Generalized Mann-Whitney Type Tests for Microarray Experiments, submitted article.}
+  \cite{Fischer, D., Oja, H., Sen, P.K., Schleutker, J., Wahlfors, T. (2013): Generalized Mann-Whitney Type Tests for Microarray Experiments, Scandinavian Journal of Statistics, to appear.}
 
   \cite{Fischer, D., Oja, H. (2013): Mann-Whitney Type Tests for Microarray Experiments: The R Package gMWT, submitted article.}
 }

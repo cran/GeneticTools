@@ -39,8 +39,8 @@
 
 \examples{
   # This is just simulated data and hence we cannot see results as with real data. 
-  # An example for real data is shown in the vignette and as soon as this data is freely available this
-  # example will be updated.
+  # An example for real data is shown in the vignette and as soon as this data is
+  # freely available this example will be updated.
   
   # See also the vignette for a more detailed example.
  
@@ -50,7 +50,8 @@
 \dontrun{
   annotBed <- gtfToBed(annotTrack)
   
-  lm.myEQTLtrans <- eQTL(gex=Xgene,geno=genotData, xAnnot=annotBed,method="LM",windowSize=NULL,sig=0.01)
+  lm.myEQTLtrans <- eQTL(gex=Xgene, geno=genotData, xAnnot=annotBed, 
+                         method="LM", windowSize=NULL, sig=0.01)
 
   snpGeneInfo <- lm.myEQTLtrans$bed
 # Plot the visualization
@@ -59,5 +60,5 @@
 }
 
 \keyword{
-  hplot.
+  hplot
 }

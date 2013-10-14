@@ -11,7 +11,6 @@ RcppExport SEXP mdr(SEXP X, SEXP fold, SEXP status, SEXP t, SEXP cv, SEXP cvp, S
     int FOLD = Rcpp::as<int>(fold);
     double T = Rcpp::as<int>(t);
     int CV = Rcpp::as<int>(cv);
-    double CVP = Rcpp::as<int>(cvp);
     int TOP = Rcpp::as<int>(top);
     TOP = TOP + 1;
     // int NA = Rcpp::as<int>(na);
@@ -19,9 +18,6 @@ RcppExport SEXP mdr(SEXP X, SEXP fold, SEXP status, SEXP t, SEXP cv, SEXP cvp, S
     
     int k = XX.ncol();
     int p = XX.nrow();
-    
-    int NTrain = floor(p*CVP);
-    // int NTest = p-NTrain;
     
     vec index(p);
     for(int i=0;i<p;i++) index(i)=i;
@@ -551,7 +547,7 @@ vec classOne(const vec a, const vec status, double T){
   tempC.zeros();
   
   int tempValue;
-  for(int i=0;i<status.n_elem;i++){
+  for(unsigned int i=0;i<status.n_elem;i++){
     tempValue = a(i);
     if(tempValue<3){
       if(status(i)==0){
@@ -581,7 +577,7 @@ mat classTwo(const mat a, const vec status, double T){
     tempH.zeros();
     tempC.zeros();
     
-    for(int i=0;i<status.n_elem;i++){
+    for(unsigned int i=0;i<status.n_elem;i++){
        if((a(i,0)<3) && (a(i,1)<3)){
 	   if(status(i)==0){
 	     tempH(a(i,0),a(i,1)) += 1.0;
@@ -612,7 +608,7 @@ cube classThree(const mat a, const vec status, double T){
     tempH.zeros();
     tempC.zeros();
     
-    for(int i=0;i<status.n_elem;i++){
+    for(unsigned int i=0;i<status.n_elem;i++){
        if((a(i,0)<3) && (a(i,1)<3) && (a(i,2)<3)){
 	  if(status(i)==0){
 	    tempH(a(i,0),a(i,1),a(i,2)) += 1.0;
@@ -645,7 +641,7 @@ cube classFour(const mat a, const vec status, double T){
     tempH.zeros();
     tempC.zeros();
     
-    for(int i=0;i<status.n_elem;i++){
+    for(unsigned int i=0;i<status.n_elem;i++){
        if((a(i,0)<3) && (a(i,1)<3) && (a(i,2)<3) && (a(i,3)<3)){
 	  if(status(i)==0){
 	    tempH(a(i,0),a(i,1),a(i,2)+3*a(i,3)) += 1.0;
@@ -683,14 +679,14 @@ vec evalClassOne(const vec a, const vec one, const vec status){
  result.zeros();
  vec classified(a.n_elem);
  classified.zeros();
- for(int i=0;i<a.n_elem;i++){
+ for(unsigned int i=0;i<a.n_elem;i++){
    if(a(i)<3) classified(i)=one(a(i));
  }
  double tp = 0.0;
  double fp = 0.0;
  double tn = 0.0;
  double fn = 0.0;
- for(int i=0;i<a.n_elem;i++){
+ for(unsigned int i=0;i<a.n_elem;i++){
    if(a(i)<3){
     if((status(i)==0)&(classified(i)==0)){
       tn += 1.0;
@@ -718,14 +714,14 @@ vec evalClassTwo(const mat a, const mat two, const vec status){
  vec result(7);
  result.zeros();
  vec classified(status.n_elem);
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
     if((a(i,0)<3) && (a(i,1)<3)) classified(i)=two(a(i,0),a(i,1));
  }
  double tp = 0.0;
  double fp = 0.0;
  double tn = 0.0;
  double fn = 0.0;
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
    if((a(i,0)<3) && (a(i,1)<3)){
     if((status(i)==0)&(classified(i)==0)){
       tn += 1.0;
@@ -754,14 +750,14 @@ vec evalClassThree(const mat a, const cube three, const vec status){
  vec result(7);
  result.zeros();
  vec classified(status.n_elem);
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
    if((a(i,0)<3) && (a(i,1)<3) && (a(i,2)<3))   classified(i)=three(a(i,0),a(i,1),a(i,2));
  }
  double tp = 0.0;
  double fp = 0.0;
  double tn = 0.0;
  double fn = 0.0;
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
    if((a(i,0)<3) && (a(i,1)<3) && (a(i,2)<3)){
       if((status(i)==0)&(classified(i)==0)){
 	tn += 1.0;
@@ -790,14 +786,14 @@ vec evalClassFour(const mat a, const cube four, const vec status){
  vec result(7);
  result.zeros();
  vec classified(status.n_elem);
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
       if((a(i,0)<3) && (a(i,1)<3) && (a(i,2)<3) && (a(i,3)<3)) classified(i)=four(a(i,0),a(i,1),a(i,2)+3*a(i,3));
  }
  double tp = 0.0;
  double fp = 0.0;
  double tn = 0.0;
  double fn = 0.0;
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
    if((a(i,0)<3) && (a(i,1)<3) && (a(i,2)<3) && (a(i,3)<3)){
       if((status(i)==0)&(classified(i)==0)){
 	tn += 1.0;
@@ -825,7 +821,7 @@ vec classifyOne(const vec a, const vec one){
  vec result(a.n_elem);
  result.zeros();
  result += 2;
- for(int i=0;i<a.n_elem;i++){
+ for(unsigned int i=0;i<a.n_elem;i++){
     if(a(i)<3) result(i)=one(a(i));
  }
  return result;
@@ -835,7 +831,7 @@ vec classifyTwo(const mat a, const mat one){
  vec result(a.n_rows);
  result.zeros();
  result += 2;
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
     if((a(i,0)<3) && (a(i,1)<3)) result(i)=one(a(i,0),a(i,1));
  }
  return result;
@@ -846,7 +842,7 @@ vec classifyThree(const mat a, const cube one){
  vec result(a.n_rows);
  result.zeros();
  result += 2;
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
     if((a(i,0)<3) && (a(i,1)<3) && (a(i,2)<3)) result(i)=one(a(i,0),a(i,1),a(i,2));
  }
  return result;
@@ -856,7 +852,7 @@ vec classifyFour(const mat a, const cube one){
  vec result(a.n_rows);
  result.zeros();
  result += 2;
- for(int i=0;i<a.n_rows;i++){
+ for(unsigned int i=0;i<a.n_rows;i++){
     if((a(i,0)<3) && (a(i,1)<3) && (a(i,2)<3) && (a(i,3)<3)) result(i)=one(a(i,0),a(i,1),a(i,2)+3*a(i,3));
  }
  return result;
