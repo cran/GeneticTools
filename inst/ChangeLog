@@ -1,12 +1,15 @@
 LOG of the CHANGES in the package GeneticTools
 
-Version 0.2.2:
+Version 0.3:
 * Fixed typos in the manual
+* Adjusted the internal eqtl function to the output of gMWT
+* Fixed the function crash in case that there are no SNP within the given window of an eQTL
+* Improved the summary.eqtl and print.eqtl output
 
 Version 0.2.1:
 * Fixed typos in the man-files
 * Added nper option to eqtl function
-* Added missing pacakges to the namespace
+* Added missing packages to the namespace
 
 Version 0.2:
 * Added 'sig' output of the 'eQTL' function

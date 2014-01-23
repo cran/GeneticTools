@@ -24,7 +24,7 @@
   \item{method}{Method of choice for the eQTL, see details.}
   \item{mc}{Amount of cores for parallel computing.}
   \item{sig}{Significance level for the eQTL testing, see details.}
-  \item{which}{Names of numbers of genes for that the eQTL should be performed.}
+  \item{which}{Names of genes for that the eQTL should be performed.}
   \item{nper}{Sets the amount of permutations, if permuation tests are used.}
   \item{verbose}{Logical, if the method should report intermediate results.}
 }

@@ -6,7 +6,7 @@
 }
 
 \description{
-  This is an experimental function to calculate disances between time series and shouldn't be used in productive code.
+  This is an experimental function to calculate disances between time series.
 }
 \usage{
   calcDistances(X, method="C", nodes=20)
@@ -27,7 +27,8 @@
 
  The matrix \code{X} contains the individuals in the rows and the columns represent the time points. 
  
- As this is experimental code, we do not give further information, yet.  
+ As this is developing code, we do not give further information, yet, but include the function in the package for testing
+ purposes.   
 }
 \value{
  A matrix with pairwise distances.

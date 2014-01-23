@@ -2,9 +2,13 @@
 
 summary.eqtl <- function(object, ...){
   
-  cat("EQTL Summary - Testing, NO VALID OUTPUT!!!\n")
+  ws <- object$windowSize
+  if(is.null(ws)) ws <- "trans-eQTL" 
+
+  cat("EQTL Summary\n")
   cat("---------------\n")
-  cat("Type of test     :",object$method,"\n")
-  cat("Tested genes     :",length(object),"\n")
+  cat("Type of test        :",object$method,"\n")
+  cat("Tested genes        :",length(object$eqtl),"\n")
+  cat("Window size (in MB) :",ws,"\n")
   invisible(object)
 } 

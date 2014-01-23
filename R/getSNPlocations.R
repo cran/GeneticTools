@@ -1,5 +1,6 @@
 getSNPlocations <- function(genotInfo,annot,th){
   colnames(annot) <- c("Chr","Start","End")
+  if(!is.null(th)) if(th==0) th <- NULL
   if(!is.null(th)){
     th <- th * 10^6
     genotInfo[,1] <- as.character(genotInfo[,1])

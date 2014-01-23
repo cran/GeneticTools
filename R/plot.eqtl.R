@@ -1,16 +1,3 @@
-# Version: 22-12-2012, Daniel Fischer
-
-# Changes: 22-12-2012
-# added the function plotIt() in order to avoid redundancies
-
-# Changes: 22-01-2013
-# Added the different plot options for full/sig types
-
-# Changes: 12-02-2013
-# Added the option to plot also on the -log(p) scale
-# Added the option to compare to eQTL results in the log-plot
-# PLANNED: ADD A ANNOTION FIGURE WHERE CLOSE-BY GENES ARE VISUALIZED
-
 `plot.eqtl` <- function(x, file=NULL, which=NULL, sig=0.01, verbose=TRUE, centered=TRUE,log=FALSE,x2=NULL, annot=NULL, track=NULL, trackAnnot=FALSE, trackOrder=NULL, mc.cores=1,...){
   if(is.null(track)){
      plotSingle.eqtl(x=x, file=file, which=which, sig=sig, verbose=verbose, centered=centered,log=log,x2=x2, annot=NULL,...)
