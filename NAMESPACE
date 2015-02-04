@@ -1,4 +1,4 @@
-import(gMWT, snpStats, parallel, plotrix, Rcpp, RcppArmadillo)
+import(gMWT, snpStats, parallel, plotrix, Rcpp)
 
 S3method(print,eqtl)
 S3method(plot,eqtl)

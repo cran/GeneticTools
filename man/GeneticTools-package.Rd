@@ -3,11 +3,11 @@
 \docType{package}
 
 \title{
-  Loose Collection of Expression and Genotype Analysis Tools, including eQTL and MDR.
+  GeneticTools
 }
 
 \description{
-  GeneticTools is a loose collection of analysis tools for gene expression and genotype data. Currently
+  A loose collection of analysis tools for gene expression and genotype data. Currently
   it provides methods for eQTL, QTL and MDR analysis. It also contains an MDR ensemble classifier.
 }
 
@@ -15,8 +15,8 @@
   \tabular{ll}{
     Package: \tab GeneticTools\cr
     Type: \tab Package\cr
-    Version: \tab 0.3\cr
-    Date: \tab 2014-01-23\cr
+    Version: \tab 0.3.1\cr
+    Date: \tab 2015-02-04\cr
     License: \tab GPL\cr
     LazyLoad: \tab yes\cr
   }
@@ -25,7 +25,7 @@
 \author{
   Daniel Fischer
 
-  Maintainer: Daniel Fischer <daniel.fischer@uta.fi>
+  Maintainer: Daniel Fischer <daniel.fischer@luke.fi>
 }
 
 \keyword{multivariate}

@@ -1,5 +1,5 @@
-e14e30c92134392ede0e32b9fc531c6b *DESCRIPTION
-8b37a2e968b23fea2ed163f2d8f08b4e *NAMESPACE
+51dc38b40187e9373ccc0abcf8425757 *DESCRIPTION
+c7b286a8331f42745dff9e63734c3ffa *NAMESPACE
 70e7a599d27f0989d182795c9f143aa7 *R/QTL.R
 f5da57b85d01bbddb000c6537a66b07e *R/cWrappers.R
 410e4b5b987575fc0b7686290896b320 *R/calcDistances.R
@@ -32,8 +32,8 @@ f4b050f686f3756a79791bddd4e4bbe4 *R/print.mdrPredict.R
 fe77ce78183d80afac11bb4c4773a8ed *data/annotTrack.rda
 4ac0f7e19f02c44dc6dc66397678e86e *data/genotData.rda
 a239482686b9cde7e39cb36fc3f5a10e *data/realSNPs.rda
-f1915d7884978ef6b7e70f8268363b35 *inst/ChangeLog
-cd3234269e94d051a4ec7a2214e2d9e5 *man/GeneticTools-package.Rd
+6c8e947e7e3d50012b752deef49e2789 *inst/ChangeLog
+d015dbe2ff654b64cf4640b4cfbcbbf5 *man/GeneticTools-package.Rd
 a083e18fcbdfbe46cce187e3a9cc5730 *man/Xgene.Rd
 407d894d0607460d56494fab821b1d15 *man/annotTrack.Rd
 9605f63873b1268d23b191d30c1c21d2 *man/calcDistances.Rd

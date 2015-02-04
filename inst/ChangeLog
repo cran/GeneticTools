@@ -1,5 +1,8 @@
 LOG of the CHANGES in the package GeneticTools
 
+Version 0.3.1:
+* Changed Maintainer email address
+
 Version 0.3:
 * Fixed typos in the manual
 * Adjusted the internal eqtl function to the output of gMWT
